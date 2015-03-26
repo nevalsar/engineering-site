@@ -36,8 +36,6 @@ class Located_at(models.Model):
 class Web_Links(models.Model):
     college = models.ForeignKey(College)
     web_page = models.CharField(max_length=45)
-    wiki_link = models.CharField(max_length=45)
-    fb_page = models.CharField(max_length=45)
 
 # Academics section
 class Course(models.Model):
