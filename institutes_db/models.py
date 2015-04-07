@@ -11,12 +11,18 @@ for r in range(1900, (datetime.datetime.now().year+1)):
 class College(models.Model):
     college_name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.college_name
+
 
 # Contact & Information section
 class Contact(models.Model):
     college = models.ForeignKey(College)
     contact_name = models.CharField(max_length=45)
     ph_no = models.BigIntegerField(max_length=10)
+
+    def __str__(self):
+        return self.contact_name
 
 
 class Address(models.Model):
@@ -25,6 +31,9 @@ class Address(models.Model):
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)
 
+    def __str__(self):
+        return self.address
+
     class Meta:
         verbose_name_plural="Addresses"
 
@@ -32,9 +41,15 @@ class Address(models.Model):
 class State(models.Model):
     state_name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.state_name
+
 
 class City(models.Model):
     city_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.city_name
 
     class Meta:
         verbose_name_plural="Cities"
@@ -50,6 +65,9 @@ class Web_Links(models.Model):
     college = models.ForeignKey(College)
     web_page = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.web_page
+
     class Meta:
         verbose_name_plural="Web_Links"
 
@@ -58,17 +76,29 @@ class Web_Links(models.Model):
 class Course(models.Model):
     course_name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.course_name
+
 
 class Department(models.Model):
     dept_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.dept_name
 
 
 class Qualifying_Examination(models.Model):
     exam_name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.exam_name
+
 
 class Degree(models.Model):
     degree_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.degree_name
 
 
 class Offers(models.Model):
@@ -97,6 +127,9 @@ class Offer_Statistics(models.Model):
 
 class Board(models.Model):
     board_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.board_name
 
 
 class Approves(models.Model):
