@@ -1,8 +1,13 @@
-from django.shortcuts import render, HttpResponse
-from django.template import RequestContext, loader
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def index(request):
-    # template = loader.get_template('institutes_db/index.html')
-    # context = RequestContext(request)
-    # return HttpResponse(template.render(context))
     return render(request, 'institutes_db/index.html')
+
+def table(request, profile_name):
+    if profile_name in ["student", "faculty", "college", "recruiter", "analyst"]:
+        return render(request, 'institutes_db/table.html', {
+            'profile_name': profile_name,
+            })
+    else:
+        return HttpResponseRedirect(reverse('institutes_db:index'))
