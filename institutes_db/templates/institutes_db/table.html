@@ -71,8 +71,9 @@
                 <p>Welcome to the National Engineering Database!</p>
                 {% if profile_name %}
                     <p>Browsing as : <strong>{{ profile_name | upper }}</strong></p>
-                {% endif %}
+                {% else %}
                     <p>Browsing without profile</p>
+                {% endif %}
                 </p>
             </div>
         </div>
