@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">National Engineering Database</a>
+                <a class="navbar-brand" href="/">National Engineering Database</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -72,12 +72,17 @@
                 <p>Welcome to the National Engineering Database!</p>
             </div>
         </div>
-
         <div class="row text-center">
-            <div id="data-table" class="col-md-12">
+            <div id="data-table" class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 alert alert-success">
                 <h3>College Details</h3>
                 <br/>
-                <table class="table table-bordered table-hover">
+                <div class="row text-center">
+                    <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+                        <img class="img img-rounded" src="{% static 'institutes_db/images/college/' %}{{id}}.jpg" alt="College Image">
+                    </div>
+                </div>
+                <br/>
+                <table class="table table-hover table-striped">
                     <tbody>
                         {% if college %}
                             <tr>
@@ -114,7 +119,7 @@
                         {% if links %}
                             <tr>
                                 <td>Link</td>
-                                <td>{{link.web_page}}</td>
+                                <td><a href="{{links.web_page}}">{{links.web_page}}</a></td>
                             </tr>
                         {% endif %}
                     </tbody>

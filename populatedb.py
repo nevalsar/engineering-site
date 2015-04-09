@@ -4,7 +4,7 @@ import django
 
 os.environ["DJANGO_SETTINGS_MODULE"] =  "engineering_site.settings"
 django.setup()
-from institutes_db.models import Address, Approves, Board, City, College, Contact, Course, Degree, Department, Founding_History, Located_at, Offer_Statistics, Offers, Qualifying_Examination, State, Web_Links
+from institutes_db.models import Address, Approves, Board, City, College, Contact, Course, Degree, Department, Founding_History, Located_at, Offer_Statistics, Offers, Qualifying_Examination, State, Web_Links, Designation, Designated_at
 
 # Don't change the stuff above
 

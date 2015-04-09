@@ -86,6 +86,25 @@ class Department(models.Model):
     def __str__(self):
         return self.dept_name
 
+class Designation(models.Model):
+    designation_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.designation_name
+        verbose_name_plural="Designations"
+
+class Designated_at(models.Model):
+    college = models.ForeignKey(College)
+    desig = models.ForeignKey(Designation)
+    dept = models.ForeignKey(Department)
+    salary = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.desig.designation_name + ", " + self.dept.dept_name
+
+    class Meta:
+        unique_together = (("desig", "dept"),)
+        verbose_name_plural="Designated_ats"
 
 class Qualifying_Examination(models.Model):
     exam_name = models.CharField(max_length=45)
@@ -107,6 +126,10 @@ class Offers(models.Model):
     degree = models.ForeignKey(Degree)
     course = models.ForeignKey(Course)
     exam = models.ForeignKey(Qualifying_Examination)
+
+    def __str__(self):
+        return self.college.college_name +", " + self.dept.dept_name + ", "+ self.degree.degree_name + ", "\
+            +self.course.course_name+ ", " + self.exam.exam_name
 
     class Meta:
         unique_together = (("college", "dept", "degree", "course"),)

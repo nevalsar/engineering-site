@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Address, Approves, Board, City, College, Contact, Course, Degree, Department, Founding_History, Located_at, Offer_Statistics, Offers, Qualifying_Examination, State, Web_Links
+from .models import Address, Approves, Board, City, College, Contact, Course, Degree, Department, Founding_History, Located_at, Offer_Statistics, Offers, Qualifying_Examination, State, Web_Links, Designation, Designated_at
 
 admin.site.register(Address)
 admin.site.register(Approves)
@@ -19,3 +19,5 @@ admin.site.register(Offers)
 admin.site.register(Qualifying_Examination)
 admin.site.register(State)
 admin.site.register(Web_Links)
+admin.site.register(Designation)
+admin.site.register(Designated_at)

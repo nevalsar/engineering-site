@@ -1,3 +1,16 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
+
+.scrollthis {
+    max-height: 100px;
+}
+
+.filter-row{
+    margin: 0px 5px 0px 5px;
+    color: rgba(0, 0, 0, .6);
+}
+
+img{
+    max-width: 70%;
+}
