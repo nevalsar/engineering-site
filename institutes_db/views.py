@@ -6,15 +6,20 @@ from institutes_db.models import Address, Approves, Board, City, College, Contac
 def index(request):
     return render(request, 'institutes_db/index.html')
 
-def table_as_user(request, profile_name):
+def table(request, profile_name=None):
     if profile_name in ["student", "faculty", "college", "recruiter", "analyst"]:
-        colleges = College.objects.all()
-        return render(request, 'institutes_db/table.html', {
-            'profile_name': profile_name,
-            'colleges': colleges,
-            })
+        located = Located_at.objects.all()
+        carval = request.GET.getlist('vehicle','')
+        if len(carval) > 0:
+            return render(request, 'institutes_db/table.html', {
+                'profile_name': profile_name,
+                'located': located,
+                'carval':carval
+                })
+        else:
+            return render(request, 'institutes_db/table.html', {
+                'profile_name': profile_name,
+                'located': located,
+                })
     else:
         return render(request, 'institutes_db/table.html')
-
-def table_as_guest(request):
-    return render(request, 'institutes_db/table.html')
