@@ -19,7 +19,7 @@ class College(models.Model):
 class Contact(models.Model):
     college = models.ForeignKey(College)
     contact_name = models.CharField(max_length=45)
-    ph_no = models.BigIntegerField(max_length=10)
+    ph_no = models.CharField(max_length=20)
 
     def __str__(self):
         return self.contact_name
